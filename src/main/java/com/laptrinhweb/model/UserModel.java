@@ -6,7 +6,8 @@ public class UserModel extends Astract<UserModel> {
 	private String fullname;
 	private String passwork;
 	private int status;
-	private long roleidi;
+	private long roleId; 
+	private RoleModel role = new RoleModel();
 
 	public String getUsername() {
 		return username;
@@ -40,11 +41,21 @@ public class UserModel extends Astract<UserModel> {
 		this.status = status;
 	}
 
-	public long getRoleidi() {
-		return roleidi;
+	public long getRoleId() {
+		return roleId;
 	}
 
-	public void setRoleidi(long roleidi) {
-		this.roleidi = roleidi;
+	public void setRoleId(long roleId) {
+		this.roleId = roleId;
 	}
+
+	public RoleModel getRole() {
+		return role;
+	}
+
+	public void setRole(RoleModel role) {
+		this.role = role;
+	}
+
+
 }

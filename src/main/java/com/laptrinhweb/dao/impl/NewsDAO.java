@@ -62,11 +62,11 @@ public class NewsDAO extends AbstractDAO<NewsModel> implements INewDAO {
 	public List<NewsModel> findAll(Pageble pageble) {
 		
 		StringBuilder sql = new StringBuilder("SELECT * FROM news");
-		if (pageble.getSorter() != null) {
-			sql.append("ORDER BY" +pageble.getSorter().getSortName()+" " + pageble.getSorter().getSortBy() +"");
+		if (pageble.getSorter() != null && pageble.getSorter().getSortName() != null && pageble.getSorter().getSortBy() != null) {
+			sql.append(" ORDER BY " + pageble.getSorter().getSortName() + " " + pageble.getSorter().getSortBy());
 		}
 		if( pageble.getOffset() != null && pageble.getLimit() != null) {
-			sql.append("LIMIT "+ pageble.getOffset() +","+pageble.getLimit()+"");	
+			sql.append(" LIMIT " + pageble.getOffset() + "," + pageble.getLimit());	
 		}
 		return query(sql.toString(), new NewMapper());
 
